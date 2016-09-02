@@ -10,6 +10,10 @@ module.exports = {
       password: process.env.db_password,
       database: 'omakase',
       charset: 'utf8'
+    },
+    pool: {
+      min: 0,
+      max: 7
     }
   }
 }
