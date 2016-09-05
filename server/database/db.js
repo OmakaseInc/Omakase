@@ -19,6 +19,7 @@ knex.ensureSchema = function() {
   			})
   		}
   	}),
+    
   	knex.schema.hasTable('Restaurants').then(function(exists) {
 			if (!exists) {
   			 knex.schema.createTable('Restaurants', function(table) {

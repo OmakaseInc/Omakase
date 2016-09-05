@@ -1,13 +1,13 @@
 var LocalStrategy = require('passport-local').Strategy;
-
-var User = require('.../app/models/user');
+var FacebookStrategy = require('passport-facebook').Strategy;
+var userModel = require('./../model/user.model.js');
 var configAuth = require('./auth');
 
 
 module.exports = function(passport){
 	//passport persistent login sessions
 	passport.serializeUser(function(user,done) {
-		done.(null, user.id);
+		done(null, user.id);
 	});
 
 	passport.deserializeUser(function(id, done){
@@ -24,7 +24,7 @@ module.exports = function(passport){
 
 	function(req, email, password, done){
 			process.nextTick(function(){
-				User.findOne({'local.email' : email}, function(err, user){
+				UsfindOne({'local.email' : email}, function(err, user){
 				if(err)
 					return done(err);
 				if(user){
@@ -71,7 +71,7 @@ module.exports = function(passport){
 		})
 	}));
 
-	passport.user(new FacebookStrategy({
+	passport.use(new FacebookStrategy({
 		clientID : configAuth.facebookAuth.clientID,
 		clientSecret : configAuth.facebookAuth.clientSecret,
 		callbackURL : configAuth.facebookAuth.callbackURL,

@@ -1,6 +1,7 @@
 var db = require('../database/db.js')
-var _ = require('underscore')
-var scrypt = require("scrypt");
+var _ = require('underscore');
+var bcrypt   = require('bcrypt-nodejs');
+// var scrypt = require("scrypt");
 
 
 var userModel = module.exports
@@ -15,13 +16,13 @@ userModel.addUser = function(attr) {
 	})
 }
 
-userModel.methods.generateHash = function(password){
-	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
+// userModel.methods.generateHash = function(password){
+// 	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+// };
 
-userSchema.methods.validPassword = function(password) {
-	return bcrypt.compareSync(password, this.local.password);
-};
+// userSchema.methods.validPassword = function(password) {
+// 	return bcrypt.compareSync(password, this.local.password);
+// };
 
 
 // userModel.methods.generateHash = function(password){

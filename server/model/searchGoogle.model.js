@@ -1,4 +1,4 @@
-var auth = require('./../../.auth');
+require('dotenv').config();
 var request = require("request");
 
 var searchGoogleModel = module.exports;
@@ -10,7 +10,7 @@ searchGoogleModel.getRestaurantList = function(params){
     url: 'https://maps.googleapis.com/maps/api/place/textsearch/json',
     qs:
      { query: location,
-       key: auth.googlePlacesKey + '\t  ',
+       key: process.env.google_api_key + '\t  ',
        type: 'restaurant',
        fields: 'results (formatted_address, name, opening_hours/open_now, photos)'   },
     headers:

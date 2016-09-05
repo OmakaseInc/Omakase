@@ -5,18 +5,18 @@ module.exports = function(app, passport){
 	});
 
 	app.get('/signup', function(req, res){
-		res.render('signup.ejs', {message: req.flash('signupMessage') });
+		res.render('/signup', {message: req.flash('signupMessage') });
 	})
 
 	app.post('/signup', passport.authenticate('local-signup', {
-		successRedirect : '/profile',
+		successRedirect : '/voteSurvey',
 		failureRedirect : '/signup',
 		failureFlash : true
 	}));
 
 	app.post('/login', passport.authenticate('local-login', {
-		successRedirect : '/profile',
-		failureRedirect : '/login',
+		successRedirect : '/voteSurvey',
+		failureRedirect : '/login-to-vote',
 		failureFlash : true
 	}));
 
@@ -27,11 +27,14 @@ module.exports = function(app, passport){
 		});
 	});
 
-	app.get('/auth/facebook/callback',
-		passport.authenticate('facebook', {
-			successRedirect: '/profile',
-			failureRedirect: '/'
-		}))
+	app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+
+    app.get('/auth/facebook/callback',
+        passport.authenticate('facebook', {
+            successRedirect : '/voteSurvey',
+            failureRedirect : '/'
+        }));
+
 
 	app.get('/logout', function(req, res){
 		req.logout();
