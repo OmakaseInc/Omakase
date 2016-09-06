@@ -53,6 +53,58 @@ body {
     position: relative;
 }
 
+.main-container-food-result {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    flex: 8;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../blurred-background.jpg');
+    position: relative;
+}
+
+.blurred-container {
+    background: rgba(255,255,255,.85);
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    height: 350px;
+    width: 600px;
+}
+
+.blurred-container-food-result {
+    background: rgba(255,255,255,.85);
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    width: 350px;
+}
+
+.blurred-container-vote-survey {
+    background: rgba(255,255,255,.85);
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    width: 500px;
+}
+
+.Select-control {
+    background-color: black !important;
+}
+
+.is-open, .Select-option, .Select-menu-outer {
+    background-color: black;
+    color: white;
+}
+
+.Select-placeholder, .Select-value-label {
+    color: white !important;
+}
+
 .main-content {
     font-size: 1.5em;
     width: 60%;
@@ -69,9 +121,10 @@ body {
 
 .vote-survey-content {
     font-size: 1.5em;
-    color: white;
+    color: black;
     width: 40%;
     margin-top: 150px;
+
     position: relative;
     text-align: center;
 }
@@ -79,7 +132,7 @@ body {
 .about-content {
     margin-top: 150px;
     text-align: center;
-    color: white;
+    color: black;
 }
 
 .vote-survey p {
@@ -101,10 +154,11 @@ body {
 }
 
 .main-content p {
-    color: white;
+    color: black;
     letter-spacing: 2px;
     font-size: 2em;
     margin-bottom: 35px;
+    font-size: 2em;
 }
 
 .error-message {
@@ -115,10 +169,12 @@ body {
 .main-button {
     margin-top: 40px;
     border: black;
+    background: black;
+    color: white;
 }
 
 .main-button:hover {
-    background: black;
+    background: grey;
     color: white;
 }
 
@@ -133,5 +189,28 @@ body {
 }
 
 .vote-confirm {
+    color: black;
+}
+
+input {
+    background: black;
     color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-button {
+    margin-top: 5px;
+    border: black;
+    background: black;
+    color: white;
+}
+
+::-webkit-input-placeholder {
+  color: white;
+  text-align: center;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+  text-align: center;
 }

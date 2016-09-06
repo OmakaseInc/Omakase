@@ -76,15 +76,18 @@ class VoteApp extends React.Component {
                 <div className="container-fluid">
                     <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                     <div className="main-container">
-                        <div className="vote-survey-content">
-                            {this.state.error && <p className="error-message"> Please complete the voting form! </p>}
-                            <VoteSurvey
-                                handleFoodChoice={this.handleFoodChoice}
-                                handleLocationChoice={this.handleLocationChoice}
-                                hasLocationChoice={this.state.hasLocationChoice}
-                                handleRestaurantChoice={this.handleRestaurantChoice}
-                                handleVote={this.handleVote}
-                            />
+                        <div className="blurred-container-vote-survey">
+                            <div className="vote-survey-content">
+                                {this.state.error && <p className="error-message"> Please complete the voting form! </p>}
+                                <VoteSurvey
+                                    handleFoodChoice={this.handleFoodChoice}
+                                    handleLocationChoice={this.handleLocationChoice}
+                                    hasLocationChoice={this.state.hasLocationChoice}
+                                    handleRestaurantChoice={this.handleRestaurantChoice}
+                                    handleVote={this.handleVote}
+                                    userid={this.state.userid}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -95,8 +98,10 @@ class VoteApp extends React.Component {
                 <div className="container-fluid">
                     <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                     <div className="main-container">
-                        <div className="main-content">
-                            <h1 className="vote-confirm"> You voted that {this.state.restaurant.label} has the best {this.state.foodType.label.toLowerCase()} in {this.state.location.label}! </h1>
+                        <div className="blurred-container">
+                            <div className="main-content">
+                                <h1 className="vote-confirm"> You voted that {this.state.restaurant.label} has the best {this.state.foodType.label.toLowerCase()} in {this.state.location.label}! </h1>
+                            </div>
                         </div>
                     </div>
                 </div>

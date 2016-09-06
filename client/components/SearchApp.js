@@ -13,7 +13,7 @@ class SearchApp extends React.Component {
         super(props);
         this.state = {
             page: 'locationSearch',
-            navLink: '/vote',
+            navLink: '/login-to-vote',
             navMessage: 'Go Vote!',
             location: null,
             foodType: null,
@@ -83,15 +83,17 @@ class SearchApp extends React.Component {
             return (
                 <div className="container-fluid">
                     <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
-                    <div className="main-container">
-                        <div className="main-content">
-                            <p> Where are you? </p>
-                            {this.state.locationError && <div className="error-message"> Please choose a city! </div>}
-                            <LocationSearchBar
-                                cityPlaceholder="Choose a city..."
-                                handleLocationChoice={this.handleLocationChoice}
-                            />
-                            <Button className="main-button" onClick={() => {this.handleLocationSearch()}}> Find Food Near Me </Button>
+                        <div className="main-container">
+                        <div className="blurred-container">
+                            <div className="main-content">
+                                <p> Where are you? </p>
+                                {this.state.locationError && <div className="error-message"> Please choose a city! </div>}
+                                <LocationSearchBar
+                                    cityPlaceholder="Choose a city..."
+                                    handleLocationChoice={this.handleLocationChoice}
+                                />
+                                <Button className="main-button" onClick={() => {this.handleLocationSearch()}}> Find Food Near Me </Button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -103,14 +105,16 @@ class SearchApp extends React.Component {
                     <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                     <div className="main-container">
                         <a className="arrow" onClick={() => {this.navigateToLocationSearch()}}><Glyphicon glyph="chevron-left"/></a>
-                        <div className="main-content">
-                            <p> What are you craving? </p>
-                            {this.state.foodError && <div className="error-message"> Please choose a food! </div>}
-                            <FoodSearchBar
-                                foodPlaceholder="I'm craving..."
-                                handleFoodChoice={this.handleFoodChoice}
-                            />
-                            <Button className="main-button" onClick={() => {this.handleFoodSearch()}}> Curate The Best </Button>
+                        <div className="blurred-container">
+                            <div className="main-content">
+                                <p> What are you craving? </p>
+                                {this.state.foodError && <div className="error-message"> Please choose a food! </div>}
+                                <FoodSearchBar
+                                    foodPlaceholder="I'm craving..."
+                                    handleFoodChoice={this.handleFoodChoice}
+                                />
+                                <Button className="main-button" onClick={() => {this.handleFoodSearch()}}> Curate The Best </Button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -120,14 +124,16 @@ class SearchApp extends React.Component {
             return (
                 <div className="container-fluid food-search">
                     <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
-                    <div className="main-container">
+                    <div className="main-container-food-result">
                         <a className="arrow" onClick={() => {this.navigateToFoodSearch()}}><Glyphicon glyph="chevron-left"/></a>
-                        <div className="main-content result-content">
-                            <FoodResult
-                                location={this.state.location}
-                                foodType={this.state.foodType}
-                                result={this.state.result}
-                            />
+                        <div className="blurred-container-food-result">
+                            <div className="main-content result-content">
+                                <FoodResult
+                                    location={this.state.location}
+                                    foodType={this.state.foodType}
+                                    result={this.state.result}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
