@@ -5,10 +5,10 @@ module.exports = {
   development: {
     client: 'mysql',
     connection: {
-      host: 'mysql.kanadachi.com', //or 127.0.0;.1
+      host: 'omakase.justinpchen.com', //or 127.0.0;.1
       user: process.env.db_username,
       password: process.env.db_password,
-      database: 'omakase',
+      database: 'omakase_legacy',
       charset: 'utf8'
     },
     pool: {

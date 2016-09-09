@@ -14,7 +14,7 @@ function addUser(req, res) {
         .then(function(user) {
             if (user) {
                 res.status(200).send("User already exists");
-            }  else {
+            } else {
                 userModel.addUser(newUser)
                     .then(function(result) {
                         res.status(200).send(result)
@@ -27,7 +27,7 @@ function addUser(req, res) {
         .catch(function(err) {
             res.status(500).end('Error inside findUserById', err)
         })
-    }
+}
 
 function checkUser(req, res) {
     var findUser = {
@@ -39,9 +39,9 @@ function checkUser(req, res) {
         .then(function(user) {
             if (user) {
                 res.status(200).send(user);
-            }  else {
-               res.status(200).send("Please sign up first")
-           }
+            } else {
+                res.status(200).send("Please sign up first")
+            }
         })
         .catch(function(err) {
             res.status(500).end('Error inside findUserById', err)

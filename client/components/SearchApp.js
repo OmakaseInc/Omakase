@@ -5,6 +5,7 @@ import NavBar from './NavBar';
 import LocationSearchBar from './LocationSearchBar';
 import FoodSearchBar from './FoodSearchBar';
 import FoodResult from './FoodResult';
+import G_Map from './GoogleMap';
 import results from '../data/dummyResults';
 import { Button, Glyphicon } from 'react-bootstrap';
 
@@ -147,6 +148,7 @@ class SearchApp extends React.Component {
                                 result={this.state.result}
                             />
                     </div>
+                    <G_Map />
                 </div>
             );
         }

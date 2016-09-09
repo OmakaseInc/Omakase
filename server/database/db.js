@@ -12,8 +12,9 @@ knex.ensureSchema = function() {
 			if (!exists) {
   			 knex.schema.createTable('Users', function(table) {
   				table.increments('id').primary();
-          table.string('FB_id', 50); //for FB auth token
+          // table.string('FB_id', 50); //for FB auth token
           table.string('name');
+					table.string('password');
   			}).then(function(table) {
   				console.log('UsersTable has been created', table)
   			})
